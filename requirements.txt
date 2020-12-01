@@ -1,0 +1,6 @@
+Django
+django-debug-toolbar
+django-extensions
+pylint
+python-decouple
+ipython

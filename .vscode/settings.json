@@ -1,0 +1,16 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "python.linting.pycodestyleEnabled": true,
+  "python.linting.pylintPath": "pylint",
+  "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+  "python.linting.pylintEnabled": true,
+  "python.linting.pycodestyleArgs": ["--ignore=E501"],
+  "files.exclude": {
+    "**/*.pyc": true
+  },
+  "python.pythonPath": "d:\\VirtualEnvs\\Blog\\Scripts\\python.exe",
+  "prettier.printWidth": 9999,
+  "prettier.arrowParens": "avoid",
+  "prettier.trailingComma": "none"
+}
