@@ -1,10 +1,11 @@
 {% load static %}
 {% static 'css' as css %}
 {% static 'vendor' as vendor %}
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %} {% endblock title %}</title>
+    <title>{% block head_title %} {% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -17,7 +18,7 @@
     <link rel="stylesheet" href="{{css}}/custom.css">
     <link rel="shortcut icon" href="/static/img/favicon.png">
 
-    {% block extra_style %}
+    {% block extra_head %}
 
-    {% endblock extra_style %}
+    {% endblock %}
 </head>

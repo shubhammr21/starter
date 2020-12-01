@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'core',
     'app'
 ]
@@ -76,12 +77,11 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-        {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-        {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-        {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-        {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}
-    ]
-
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -156,9 +156,6 @@ if DEBUG:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-    
-    
-
 else:
     CORS_REPLACE_HTTPS_REFERER = True
     CSRF_COOKIE_SECURE = True
@@ -172,7 +169,6 @@ else:
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_FRAME_DENY = True
-
 
     ALLOWED_HOSTS = ['www.domain.com']
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -193,6 +189,40 @@ else:
 # pip install stripe django-storages twilio
 # Uncomment all the settings below
 '''
+INSTALLED_APPS += [
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'widget_tweaks'
+]
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+'''
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '123',
+            'secret': '456',
+            'key': ''
+        }
+    }
+}
+'''
+
 '''
 
 STRIPE_LIVE_MODE = DEBUG
