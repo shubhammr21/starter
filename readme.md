@@ -10,3 +10,11 @@ prompt-toolkit==3.0.8
 pycodestyle==2.6.0
 pylint==2.6.0
 python-decouple==3.3
+
+install all this.
+
+for more configuration go to these links
+
+https://github.com/jazzband/django-widget-tweaks
+
+https://django-allauth.readthedocs.io/en/latest/installation.html

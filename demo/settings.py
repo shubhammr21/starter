@@ -73,6 +73,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'demo.wsgi.application'
 
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'spro6.fcomet.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "shubham.maurya@aabhyasa.in"
+EMAIL_HOST_PASSWORD = "Gmail@123"
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -171,7 +178,6 @@ else:
     SECURE_FRAME_DENY = True
 
     ALLOWED_HOSTS = ['www.domain.com']
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
     DATABASES = {
         'default': {
@@ -194,10 +200,28 @@ INSTALLED_APPS += [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
     'widget_tweaks'
 ]
 SITE_ID = 1
 
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # "username" | "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1  # number of days
+ACCOUNT_EMAIL_VERIFICATION = "optional"  # "mandatory" | "none"
+ACCOUNT_MAX_EMAIL_ADDRESSES = 2  # None | count
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5  # count
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 60 * 5  # in seconds
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # default False
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True  # default False
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # Default False
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Default False
+ACCOUNT_USERNAME_MIN_LENGTH = 5
+'''
+ACCOUNT_EMAIL_CONFIRMATION_HMAC = False # set true or delete this line if not using cooldown
+ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 180  # in  seconds
+'''
 AUTHENTICATION_BACKENDS = [
 
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -207,17 +231,32 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 
 ]
-'''
 # Provider specific settings
+'''
 SOCIALACCOUNT_PROVIDERS = {
-    'google': {
+    "github": {
+        # For each provider, you can choose whether or not the
+        # email address(es) retrieved from the provider are to be
+        # interpreted as verified.
+        "VERIFIED_EMAIL": True
+    },
+    "google": {
         # For each OAuth based provider, either add a ``SocialApp``
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
-        'APP': {
-            'client_id': '123',
-            'secret': '456',
-            'key': ''
+        "APP": {
+            "client_id": "123",
+            "secret": "456",
+            "key": ""
+        },
+        # These are provider-specific settings that can only be
+        # listed here:
+        "SCOPE": [
+            "profile",
+            "email",
+        ],
+        "AUTH_PARAMS": {
+            "access_type": "online",
         }
     }
 }
