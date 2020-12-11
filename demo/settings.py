@@ -74,12 +74,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'demo.wsgi.application'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'spro6.fcomet.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "shubham.maurya@aabhyasa.in"
-EMAIL_HOST_PASSWORD = "Gmail@123"
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'spro6.fcomet.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = "shubham.maurya@aabhyasa.in"
+# EMAIL_HOST_PASSWORD = "Gmail@123"
+DEFAULT_FROM_EMAIL = ("My Awesome Project <shubham.maurya@aabhyasa.in>")
+EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+ANYMAIL = {
+    'WEBHOOK_SECRET': config('WEBHOOK_SECRET'),
+    "SENDGRID_API_KEY": config('SENDGRID_API_KEY'),
+    "SENDGRID_MERGE_FIELD_FORMAT": "-{}-",
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -204,7 +211,8 @@ INSTALLED_APPS += [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
     'widget_tweaks',
-    'robots'
+    'robots',
+    'anymail'
 ]
 SITE_ID = 1
 
