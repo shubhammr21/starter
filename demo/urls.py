@@ -19,6 +19,7 @@ urlpatterns = [
     path('', include('pwa.urls')),
     path('', include('app.urls')),
     path('', include('imagecrop.urls')),
+    path('', include('multi_field_search.urls')),
 ]
 if settings.DEBUG:
     import debug_toolbar

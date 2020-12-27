@@ -75,6 +75,7 @@ LOCAL_APPS = [
     'app',
     'imagecrop',
     'pwa',
+    'multi_field_search',
 ]
 # django-compressor
 # ------------------------------------------------------------------------------
