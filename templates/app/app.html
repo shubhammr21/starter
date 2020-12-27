@@ -1,13 +1,10 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
-{% comment %}
-{% block header %}
-{% endblock header %}
 
 {% block content %}
+<h1>Welcome {{name}}</h1>
+{% for url in url_list %}
+<a href="{{ url }}">⚡ {{ url }}</a> <br>
+{% endfor %}
 {% endblock content %}
-
-{% block footer %}
-{% endblock footer %}
-{% endcomment %}

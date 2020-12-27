@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include 'base/snippets/head.html' %}
+<head>
+    <title>{% block head_title %} {% endblock %}</title>
+
+    {% include 'base/snippets/head.html' %}
+
+    {% block extra_head %}
+    {% endblock %}
+
+</head>
 
 <body>
     {% block header %}
@@ -21,6 +29,9 @@
     {% include 'base/snippets/footer.html' %}
     {% endblock %}
 
+    {% include 'base/snippets/scripts.html' %}
+    {% block extra_body %}
+    {% endblock %}
 </body>
 
 </html>

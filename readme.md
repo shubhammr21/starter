@@ -18,3 +18,7 @@ for more configuration go to these links
 https://github.com/jazzband/django-widget-tweaks
 
 https://django-allauth.readthedocs.io/en/latest/installation.html
+
+# Other Django Configurations
+
+# pip install stripe django-storages twilio

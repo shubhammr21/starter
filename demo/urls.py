@@ -16,7 +16,9 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', include('robots.urls')),
-    path('', include('app.urls'))
+    path('', include('pwa.urls')),
+    path('', include('app.urls')),
+    path('', include('imagecrop.urls')),
 ]
 if settings.DEBUG:
     import debug_toolbar
