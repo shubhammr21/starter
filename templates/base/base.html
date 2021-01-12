@@ -7,31 +7,51 @@
     {% include 'base/snippets/head.html' %}
 
     {% block extra_head %}
-    {% endblock %}
+    {% endblock extra_head %}
 
 </head>
 
 <body>
+    {% comment %}
     {% block header %}
     {% include 'base/snippets/header.html' %}
     {% endblock %}
+    {% endcomment %}
+    <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
+        <a class="navbar-brand mr-lg-5" href="/">
+            <img class="navbar-brand-dark" src="/static/assets/img/brand/light.svg" alt="Volt He" />
+            <img class="navbar-brand-light" src="/static/assets/img/brand/dark.svg" alt="Volt logo" />
+        </a>
+        <div class="d-flex align-items-center">
+            <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse"
+                data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
 
-    {% include 'base/snippets/messages.html' %}
 
     {% block container %}
-    <div class="container">
-        {% block content %}
-        {% endblock %}
+    <div class="container-fluid bg-soft">
+        <div class="row">
+            <div class="col-12">
+
+                {% include 'base/snippets/sidebar.html' %}
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
     </div>
-    {% endblock %}
+    {% endblock container %}
 
     {% block footer %}
     {% include 'base/snippets/footer.html' %}
-    {% endblock %}
+    {% endblock footer %}
 
     {% include 'base/snippets/scripts.html' %}
     {% block extra_body %}
-    {% endblock %}
+    {% endblock extra_body %}
 </body>
 
 </html>

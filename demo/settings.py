@@ -86,7 +86,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {'sites': 'demo.contrib.sites.migrations'}
+# MIGRATION_MODULES = {'sites': 'demo.contrib.sites.migrations'}
 
 DEFAULT_FROM_EMAIL = config(
     "DJANGO_DEFAULT_FROM_EMAIL", default="Basic Project <noreply@example.com>"
@@ -179,7 +179,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'account_login'
 
 
 ROOT_URLCONF = 'demo.urls'

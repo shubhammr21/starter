@@ -1,17 +1,49 @@
 {% load static %}
-{% static 'css' as css %}
-{% static 'vendor' as vendor %}
+{% static 'assets' as assets %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="all,follow">
-<link rel="stylesheet" href="{{vendor}}/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{vendor}}/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{css}}/fontastic.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-<link rel="stylesheet" href="{{vendor}}/@fancyapps/fancybox/jquery.fancybox.min.css">
-<link rel="stylesheet" href="{{css}}/style.default.css" id="theme-stylesheet">
-<link rel="stylesheet" href="{{css}}/custom.css">
-<link rel="shortcut icon" href="/static/img/favicon.png">
+<!-- Primary Meta Tags -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="Your Title">
+<meta name="author" content="Themesberg">
+<meta name="description" content="Your content">
+<meta name="keywords" content="you keywords" />
+<link rel="canonical" href="https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="#">
+<meta property="og:title" content="Your Title">
+<meta property="og:description" content="Your content">
+<meta property="og:image"
+    content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-bootstrap-5-dashboard/volt-bootstrap-5-dashboard-preview.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="#">
+<meta property="twitter:title" content="Your Title">
+<meta property="twitter:description" content="Your content">
+<meta property="twitter:image"
+    content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-bootstrap-5-dashboard/volt-bootstrap-5-dashboard-preview.jpg">
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="120x120" href="{{assets}}/img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{assets}}/img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{assets}}/img/favicon/favicon-16x16.png">
+<link rel="manifest" href="{{assets}}/img/favicon/site.webmanifest">
+<link rel="mask-icon" href="{{assets}}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Fontawesome -->
+<link type="text/css" href="{{assets}}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+<!-- Notyf -->
+<link type="text/css" href="{{assets}}/vendor/notyf/notyf.min.css" rel="stylesheet">
+
+<!-- Volt CSS -->
+<link type="text/css" href="{{assets}}/css/volt.css" rel="stylesheet">
+
+<link type="text/css" href="{% static 'app_assets/jquery/css/jquery-confirm.min.css' %}" rel="stylesheet">

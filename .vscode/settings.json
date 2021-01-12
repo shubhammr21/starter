@@ -9,7 +9,7 @@
   "files.exclude": {
     "**/*.pyc": true
   },
-  "python.pythonPath": "d:\\_envs\\starter\\Scripts\\python.exe",
+  "python.pythonPath": "/home/shubham/_venv/crm/bin/python",
   "prettier.printWidth": 9999,
   "prettier.arrowParens": "avoid",
   "prettier.trailingComma": "none"

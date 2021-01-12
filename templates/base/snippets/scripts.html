@@ -1,10 +1,48 @@
 {% load static %}
-{% static 'js' as js %}
-{% static 'vendor' as vendor %}
+{% static 'assets' as assets %}
 
-<script src="{{vendor}}/jquery/jquery.min.js"></script>
-<script src="{{vendor}}/popper.js/umd/popper.min.js"></script>
-<script src="{{vendor}}/bootstrap/js/bootstrap.min.js"></script>
-<script src="{{vendor}}/jquery.cookie/jquery.cookie.js"></script>
-<script src="{{vendor}}/@fancyapps/fancybox/jquery.fancybox.min.js"></script>
-<script src="{{js}}/front.js"></script>
+<!-- Core -->
+<script src="{{assets}}/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="{{assets}}/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Vendor JS -->
+<script src="{{assets}}/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+
+<!-- Slider -->
+<script src="{{assets}}/vendor/nouislider/distribute/nouislider.min.js"></script>
+
+<!-- Jarallax -->
+<script src="{{assets}}/vendor/jarallax/dist/jarallax.min.js"></script>
+
+<!-- Smooth scroll -->
+<script src="{{assets}}/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+
+<!-- Count up -->
+<script src="{{assets}}/vendor/countup.js/dist/countUp.umd.js"></script>
+
+<!-- Notyf -->
+<script src="{{assets}}/vendor/notyf/notyf.min.js"></script>
+
+<!-- Charts -->
+<script src="{{assets}}/vendor/chartist/dist/chartist.min.js"></script>
+<script src="{{assets}}/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+
+<!-- Datepicker -->
+<script src="{{assets}}/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+
+<!-- Volt JS -->
+<script src="{{assets}}/js/volt.js"></script>
+
+<!-- Custom app script -->
+<script type="application/javascript" src="{% static 'app_assets/jquery/js/jquery-3.3.1.min.js' %}"></script>
+<script type="application/javascript" src="{% static 'app_assets/jquery/js/jquery-confirm.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'app_assets/jquery/cookie/jquery.cookie.js' %}"></script>
+<script type="application/javascript" src="{% static 'app_assets/js/notify.js' %}"></script>
+<script type="application/javascript" src="{% static 'app_assets/js/app_js.js' %}"></script>
+<script>
+    {%if messages %}
+        {%for message in messages %}
+            notification['{{ message.tags }}']("<p>" + '{{ message|capfirst }}' + "</p>");
+        {% endfor %}
+    {% endif %}
+</script>
